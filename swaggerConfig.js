@@ -9,7 +9,7 @@ const options = {
       description: 'Documentation for the crud-api-endpoint for a Person Resource',
     },
   },
-  apis: ['./routes/*.js']
+  apis: ['./routes/*.js'],
 };
 
-module.exports = swaggerJsdoc(options);
+//module.exports = swaggerJsdoc(options);

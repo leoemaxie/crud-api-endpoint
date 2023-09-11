@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Person = require('./models/person');
+const Person = require('../models/person');
 
 /**
  * @swagger
@@ -30,4 +30,5 @@ router.delete('/api/:user_id', async (req, res) => {
 });
 
 module.exports = router;
+
 
