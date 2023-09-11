@@ -1,0 +1,34 @@
+{
+  "name": "crud-api-endpoint",
+  "version": "1.0.0",
+  "description": "An API endpoint that performs CRUD operations",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test/**/.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leoemaxie/crud-api-endpoint.git"
+  },
+  "keywords": [
+    "CRUD",
+    "API",
+    "endpoints"
+  ],
+  "author": "Leo Emaxie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leoemaxie/crud-api-endpoint/issues"
+  },
+  "homepage": "https://github.com/leoemaxie/crud-api-endpoint#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  }
+}
