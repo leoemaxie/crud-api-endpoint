@@ -4,7 +4,8 @@
   "description": "An API endpoint that performs CRUD operations",
   "main": "server.js",
   "scripts": {
-    "test": "mocha test/**/.js"
+    "test": "mocha test/**/.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
