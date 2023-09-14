@@ -13,7 +13,7 @@ const Person = require('../models/person');
  *       500:
  *         description: Internal Server Error
  */
-router.get('/api:id', async (req, res) => {
+router.get('/api/:id', async (req, res) => {
   const { user_id } = req.params.id;
 
   try {

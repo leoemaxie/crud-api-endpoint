@@ -4,11 +4,11 @@ const swaggerUi = require('swagger-ui-express');
 //const specs = require('./swaggerConfig');
 const app = express();
 
-const del = require('./routes/delete');
-const get = require('./routes/get');
-const patch = require('./routes/patch');
-const post = require('./routes/post');
-const put = require('./routes/put');
+const deleteHandler = require('./routes/delete');
+const getHandler = require('./routes/get');
+const patchHandler = require('./routes/patch');
+const postHandler = require('./routes/post');
+const putHandler = require('./routes/put');
 const connectDB = require('./database/database');
 
 require('dotenv').config();
@@ -18,11 +18,11 @@ require('dotenv').config();
 app.use(express.json());
 
 // API endpoints
-app.use('/', del);
-app.use('/', get);
-app.use('/', patch);
-app.use('/', post);
-app.use('/', patch);
+app.use('/', deleteHandler);
+app.use('/', getHandler);
+app.use('/', patchHandler);
+app.use('/', postHandler);
+app.use('/', putHandler);
 
 (async () => {
   await connectDB(process.env.MONGO_URI);
