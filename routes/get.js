@@ -16,16 +16,18 @@ const Person = require('../models/person');
 router.get('/api/:id', async (req, res) => {
   const { user_id } = req.params.id;
 
-  try {
-    const user = await Person.findOne({ user_id });
-    if (!user) {
-      return res.status(404).json({ error: 'User Not Found' });
-    }
-    res.json(user);
-  } catch (error) {
-    console.error('Error retrieving user:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
+  await Person.findOne({ user_id })
+    .select('-__v')
+    .exec((err, user) => {
+      if (err) {
+        console.error('Error retrieving user:', err);
+        return  res.status(500).json({ error: 'Internal Server Error' });
+      }
+      if (!user)
+        return res.status(404).json({ error: 'User Not Found' });
+      res.json(user);
+
+    });
 });
 
 module.exports = router;

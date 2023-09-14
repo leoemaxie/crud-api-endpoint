@@ -33,15 +33,10 @@ const Person = require('../models/person');
  */
 router.post('/api', async (req, res) => {
   const { name } = req.body;
-  let newPerson;
+  const newPerson = new Person({ name });
 
-  if (Object.keys(req.body) > 1)
-  {
-    res.status(400).json({ error: "Bad Request" });
-    return;
-  }
-
-  newPerson = new Person({ name });
+  if (Object.keys(req.body).length > 1)
+    return res.status(400).json({ error: "Bad Request" });
 
   try {
     await newPerson.save();
