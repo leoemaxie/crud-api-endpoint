@@ -22,6 +22,8 @@ const Person = require('../models/person');
  *     responses:
  *       201:
  *         description: New person created
+ *       400:
+ *         description:Bad Request
  *         content:
  *           application/json:
  *             schema:
@@ -31,11 +33,15 @@ const Person = require('../models/person');
  */
 router.post('/api', async (req, res) => {
   const { name } = req.body;
-  const newPerson = new Person({
-    id: nextId,
-    name
-  });
-  nextId++;
+  let newPerson;
+
+  if (Object.keys(req.body) > 1)
+  {
+    res.status(400).json({ error: "Bad Request" });
+    return;
+  }
+
+  newPerson = new Person({ name });
 
   try {
     await newPerson.save();

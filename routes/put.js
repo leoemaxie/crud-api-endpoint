@@ -28,8 +28,8 @@ const Person = require('../models/person');
  *       500:
  *         description: Internal Server Error
  */
-router.put('/api/:user_id', async (req, res) => {
-  const { user_id } = req.params;
+router.put('/api/:id', async (req, res) => {
+  const { user_id } = req.params.id;
   const { name } = req.body;
 
   try {

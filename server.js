@@ -15,13 +15,14 @@ require('dotenv').config();
 
 // Serve Swagger documentation
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use(express.json());
 
 // API endpoints
-app.use('/api', del);
-app.use('/api', get);
-app.use('/api', patch);
-app.use('/api', post);
-app.use('/api', patch);
+app.use('/', del);
+app.use('/', get);
+app.use('/', patch);
+app.use('/', post);
+app.use('/', patch);
 
 (async () => {
   await connectDB(process.env.MONGO_URI);

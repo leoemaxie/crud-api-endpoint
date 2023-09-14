@@ -28,8 +28,8 @@ const Person = require('../models/person');
  *       500:
  *         description: Internal Server Error
  */
-router.patch('/api/:user_id', async (req, res) => {
-  const { user_id } = req.params;
+router.patch('/api/:id', async (req, res) => {
+  const { user_id } = req.params.id;
   const { name } = req.body;
 
   try {
