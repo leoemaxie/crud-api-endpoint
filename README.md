@@ -11,20 +11,20 @@ This project requires nodejs version >= 18.0.0 and npm package manager.
 
 ## Running Locally
 1. Clone this repository by running:
-		```bash
-		git clone https://github.com/leoemaxie/crud-api-endpoint.git
-		cd crud-api-endpoint
-		```
+   ```bash
+   git clone https://github.com/leoemaxie/crud-api-endpoint.git
+   cd crud-api-endpoint
+   ```
 2. Create a `.env` file and fill in the url to your Mongodb atlas database or any other cloud provider.
-		```bash
-		echo "MONGI_URI=<your cloud database url>" >> .env
-		```
-		Alternatively, you can use a local database by using `mongod` and connecting to the local database server.
+   ```bash
+   echo "MONGI_URI=<your cloud database url>" >> .env
+	```
+	Alternatively, you can use a local database by using `mongod` and connecting to the local database server.
 
 3. Start the server:
-		```bash 
-		npm run start
-		```
+   ```bash
+   npm run start
+   ```
 
 ## Requests
 - Accepts JSON only.
