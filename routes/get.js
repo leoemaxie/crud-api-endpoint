@@ -16,7 +16,7 @@ const Person = require('../models/person');
 router.get('/api/:id', async (req, res) => {
   const { user_id } = req.params.id;
 
-  await Person.findOne({ user_id })
+  Person.findOne({ user_id })
     .select('-__v')
     .exec((err, user) => {
       if (err) {
@@ -26,7 +26,6 @@ router.get('/api/:id', async (req, res) => {
       if (!user)
         return res.status(404).json({ error: 'User Not Found' });
       res.json(user);
-
     });
 });
 
