@@ -14,19 +14,19 @@ const Person = require('../models/person');
  *         description: Internal Server Error
  */
 router.get('/api/:id', async (req, res) => {
-  const { user_id } = req.params.id;
+  const { id } = req.params;
 
-  Person.findOne({ user_id })
-    .select('-__v')
-    .exec((err, user) => {
-      if (err) {
-        console.error('Error retrieving user:', err);
-        return  res.status(500).json({ error: 'Internal Server Error' });
-      }
-      if (!user)
-        return res.status(404).json({ error: 'User Not Found' });
-      res.json(user);
-    });
+  try {
+    const user = await Person.findOne({ id }).select('-__v');
+
+    if (!user) {
+      return res.status(404).json({ error: 'User Not Found' });
+    }
+    res.json(user);
+  } catch (err) {
+    console.error('Error retrieving user:', err);
+    return  res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 module.exports = router;

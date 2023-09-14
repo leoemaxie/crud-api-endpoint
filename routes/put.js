@@ -29,11 +29,12 @@ const Person = require('../models/person');
  *         description: Internal Server Error
  */
 router.put('/api/:id', async (req, res) => {
-  const { user_id } = req.params.id;
+  const { id } = req.params;
   const { name } = req.body;
 
   try {
-    const user = await Person.findOneAndUpdate({ user_id }, { name }, { new: true });
+    const user = await Person.findOneAndUpdate({ id }, { name }, { new: true });
+
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
