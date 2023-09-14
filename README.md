@@ -18,8 +18,7 @@ cd crud-api-endpoint
 2. Create a `.env` file and fill in the url to your Mongodb atlas database or any other cloud provider.
 ```bash
 echo "MONGI_URI=<your cloud database url>" >> .env
-```
-Alternatively, you can use a local database by using `mongod` and connecting to the local database server.
+``` Alternatively, you can use a local database by using `mongod` and connecting to the local database server.
 3. Start the server:
 ```bash 
 npm run start
@@ -27,7 +26,7 @@ npm run start
 
 ## Requests
 - Accepts JSON only.
-- Request body can only contain `name` attribute which must be a string, unique and have more than a character.
+- Request body can only contain a `name` attribute which must be a string, unique and have more than a character.
 - Example request:
 ```json
 {
