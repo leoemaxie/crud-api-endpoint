@@ -8,17 +8,12 @@ router.post('/api', async (req, res) => {
   const id = generateID(name);
   const newPerson = new Person({ id, name });
 
-  if (Object.keys(req.body).length > 1)
+  if (Object.keys(req.body).length > 1 || typeof name != 'string')
     return res.status(400).json({ error: "Bad Request" });
 
   try {
     await newPerson.save();
-
-    const response = {
-      id,
-      name
-    };
-    res.status(201).json(response);
+    res.status(201).json({ id, name });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }

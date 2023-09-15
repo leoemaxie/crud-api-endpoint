@@ -13,7 +13,7 @@ function createServer() {
   const app = express();
 
   // Parse JSON content-Type
-  app.use(express.json());
+  app.use(express.json({ strict: true }));
 
   // API endpoints
   app.use('/', deleteHandler);

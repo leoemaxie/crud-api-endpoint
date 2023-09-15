@@ -8,10 +8,8 @@ router.patch('/api/:user_id', async (req, res) => {
 
   try {
     const user = await Person.findOneAndUpdate({ user_id }, { name }, { new: false });
-
     if (!user)
-      return res.status(404).json({ error: 'User not found' });
-
+      return res.status(404).json({ error: 'User Not Found' });
     const { id, name } = user;
     res.status(200).json({ id, name });
   } catch (error) {
