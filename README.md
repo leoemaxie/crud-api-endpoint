@@ -47,8 +47,7 @@ This project requires nodejs version >= 18.0.0 and npm package manager.
 ## Responses
 * Returns JSON.
 * For a `GET` request:
-  - A unique `id` and `name`  attribute is returned. `id` is an 8 bits number that can be used to fetch a user. However, it is **readonly**'
-  - Example response:
+  - A unique `id` and `name`  attribute is returned. `id` is an 8 bits number that can be used to fetch a user. However, it is **readonly**
     ```json
     {
        "id": 10468932,
@@ -57,7 +56,7 @@ This project requires nodejs version >= 18.0.0 and npm package manager.
     ```
   - If an error occurs, an error message and the appropriate status code is returned.
 * For a `POST` request:
-  - On Successful creation, a unique `id` attribute is automatically generated. These `id` and the `name` of the newly created user is returned.
+  - On Successful creation, a unique `id` attribute is automatically generated. This `id` and the `name` of the newly created user is returned.
   - If an error occurs, an error message and the appropriate status code is returned.
 * For `PATCH` and `PUT` request:
   - On Successful update, the `id` and `name` of the updated user is returned.
@@ -67,7 +66,7 @@ This project requires nodejs version >= 18.0.0 and npm package manager.
     ```json
     { "message": "User Successfully Deleted" }
     ```
-   **Deleting a nonexistent user is considered successful**
+     **Deleting a nonexistent user is considered successful**
   - The only error that can occur is server side error and an error message and status code `500` is returned.
 
 ## Testing
