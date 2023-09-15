@@ -46,8 +46,9 @@ This project requires nodejs version >= 18.0.0 and npm package manager.
 
 ## Responses
 * Returns JSON.
+
 * For a `GET` request:
-  - A unique `id` and `name`  attribute is returned. `id` is an 8 bits number that can be used to fetch a user. However, it is **readonly**
+  - A unique `id` and `name`  attribute is returned. `id` is an 8 bits number that can be used to fetch a user. However, it is **readonly**.
     ```json
     {
        "id": 10468932,
@@ -55,12 +56,15 @@ This project requires nodejs version >= 18.0.0 and npm package manager.
     }
     ```
   - If an error occurs, an error message and the appropriate status code is returned.
+
 * For a `POST` request:
   - On Successful creation, a unique `id` attribute is automatically generated. This `id` and the `name` of the newly created user is returned.
   - If an error occurs, an error message and the appropriate status code is returned.
+
 * For `PATCH` and `PUT` request:
   - On Successful update, the `id` and `name` of the updated user is returned.
   - If a user doesn't exist or if other errors occurs, an error message and the appropriate status code is returned.
+
 * For a `DELETE` request:
   - On successful deletion, a success message is returned
     ```json
@@ -87,6 +91,7 @@ Alternatively, online API testing tools such as Postman can be used to test the 
 
 ## Links
 [CRUD API Endpoint](https://crud-api-endpoint.onrender.com/api)
+
 [Database ER
 Diagram](https://lucid.app/lucidchart/34722ac3-c282-4f2e-b61f-7c199e68c5a8/edit?view_items=yRKqh-dGCGV0&invitationId=inv_845ad99c-824c-4057-b17a-71e1119c1681)
 
