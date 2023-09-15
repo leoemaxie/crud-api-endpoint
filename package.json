@@ -4,8 +4,8 @@
   "description": "An API endpoint that performs CRUD operations",
   "main": "server.js",
   "scripts": {
-    "test": "mocha test/**/.js",
-    "start": "node server.js"
+    "test": "mocha",
+    "start": "node api.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,9 @@
     "mongoose": "^7.5.0"
   },
   "devDependencies": {
+    "chai": "^4.3.8",
     "mocha": "^10.2.0",
+    "supertest": "^6.3.3",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
   }

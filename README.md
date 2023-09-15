@@ -17,7 +17,7 @@ This project requires nodejs version >= 18.0.0 and npm package manager.
    ```
 2. Create a `.env` file and fill in the url to your Mongodb atlas database or any other cloud provider.
    ```bash
-   echo "MONGI_URI=<your cloud database url>" >> .env
+   echo "MONGO_URI=<your cloud database url>" >> .env
 	```
 	Alternatively, you can use a local database by using `mongod` and connecting to the local database server.
 
@@ -51,12 +51,13 @@ This project requires nodejs version >= 18.0.0 and npm package manager.
 * `/api:id` -> GET request endpoint. Reads the attribute of a person. `id` params can be the name or id of a person.
 * `/api:id` -> PUT request endpoint. Updates the attribute of a person. `id` params can be the name or id of a person.
 * `/api:id` -> PATCH request endpoint. Updates the attribute of a person. `id` params can be the name or id of a person.
-* `/api:id` -> DELETE request endpoint. Deletes the attribute of a person. `id` params can be the name or id of a person.
+* `/api:id` -> DELETE request endpoint. Deletes a user (person resource). `id` params can be the name or id of a person.
 
 ## Error Statuses
 * 200 - OK: User has been successfully updated.
 * 201 - Created: User has been successfully created.
 * 400 - Bad Request: Request body has more than one attribute.
+  - Invalid content-Type.
 * 404 - User Not Found.
 * 500 - Internal Server Error.
 
@@ -64,4 +65,4 @@ This project requires nodejs version >= 18.0.0 and npm package manager.
 [CRUD API Endpoint](https://crud-api-endpoint.onrender.com/api)
 
 ## Author
-[Leo Emaxie](https://github/com/leoemaxie)
+[Leo Emaxie](https://github.com/leoemaxie)

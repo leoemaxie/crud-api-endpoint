@@ -1,0 +1,8 @@
+/api:
+  delete:
+    summary: Deletes a user in the database
+    responses:
+      404:
+        description: User Not Found 
+      500:
+        description: Internal Server Error

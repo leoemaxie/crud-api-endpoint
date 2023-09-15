@@ -1,0 +1,58 @@
+/api:
+  post:
+    summary: Create a new person resource
+    description: Create a new user with a name and an id
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    tags:
+      - Person
+
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                unique: true
+                minLength: 2
+                description: The name of the user
+              id:
+                type: integer
+                format: int64
+                description: The id of the user
+            required:
+              - name
+        schema:
+          $ref: '#/components/schemas/Person'
+
+    responses:
+      201:
+        description: User created successfully
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              description: A success message
+              resource:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: The name of the new user
+                  id:
+                    type: integer
+                    format: int64
+                    description: The id of the new user
+      400:
+        description: Bad request, invalid input
+      500:
+        description: Internal server error
+
+      examples:
+        application/json:
+          name: Leo Emaxie

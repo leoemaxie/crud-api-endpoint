@@ -1,0 +1,28 @@
+/api:
+  put:
+    summary: Updates the details of a user in the database
+    tags:                                                   
+        - Persons
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+        properties:
+          id:
+            type: number
+          name:
+            type: string
+            unique: true
+            minLengrh: 2
+          required:
+            - name
+    schema:
+      $ref: '#/components/schemas/Person'
+    responses:
+      200:
+        description: OK
+      404:
+        description: User Not Found
+      500:
+        description: Internal Server Error

@@ -1,0 +1,9 @@
+/api:
+  get:
+    summary: Fetches the detwils of a person in the database
+    responses:
+      404:
+        description: User Not Found 
+      500:
+        description: Internal Server Error
+
