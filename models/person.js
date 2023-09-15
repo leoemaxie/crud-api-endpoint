@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 
 const personSchema = new mongoose.Schema({
-  _id: {
-    type: mongoose.Schema.Types.ObjectId,
-    alias: 'id',
-  },
+  id: Number,
   name: {
     type: String,
     minLength: 2,

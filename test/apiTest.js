@@ -1,23 +1,43 @@
 const request = require('supertest');
-const server = require('../server');
 const expect = require('chai').expect;
+const mongoose = require("mongoose")
+const createServer = require('../server')
+
+require('dotenv').config();
+
+beforeEach((done) => {
+  mongoose.connect(
+    process.env.MONGO_URI,
+    { useNewUrlParser: true },
+    () => done()
+  )
+});
+
+afterEach((done) => {
+  mongoose.connection.db.dropDatabase(() => {
+    mongoose.connection.close(() => done())
+  })
+})
+
+const app = createServer();
 
 describe('API Endpoint Test', () => {
 
-  before((done) => {
-    server.start()
-      .then(() => done());
-  });
   it('should create a new resource', async () => {
-    const response = await request(server).post('/api').send({
-      "name": "Leo Emaxie"
-    });
-    expect(response.status).toBe(201);
-    done();
+    await request(app)
+      .post('/api')
+      .send({
+        "name": "Leo Emaxie"
+      })
+      .expect(201)
+      .end((err, res) => {
+        if (err) done(err);
+        done();
+      });
   });
 
   it('should reject invalid content-Type', async () => {
-    const response = await request(server).post('/api').send("<div></div");
+    const response = await request(app).post('/api').send("<div></div");
     expect(response.status).toBe(400);
     done();
   });
@@ -64,5 +84,4 @@ describe('API Endpoint Test', () => {
     expect(response.status).toBe(404);
     done();
   });
-
 }); 

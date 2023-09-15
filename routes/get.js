@@ -2,16 +2,17 @@ const express = require('express');
 const router = express.Router();
 const Person = require('../models/person');
 
-router.get('/api/:id', async (req, res) => {
-  const { id } = req.params;
+router.get('/api/:user_id', async (req, res) => {
+  const { user_id } = req.params;
 
   try {
-    const user = await Person.findOne({ id }).select('-__v');
+    const user = await Person.findOne({ user_id });
 
-    if (!user) {
+    if (!user)
       return res.status(404).json({ error: 'User Not Found' });
-    }
-    res.json(user);
+
+    const { id, name } = user;
+    res.json({ id, name });
   } catch (err) {
     console.error('Error retrieving user:', err);
     return  res.status(500).json({ error: 'Internal Server Error' });
