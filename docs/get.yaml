@@ -1,6 +1,19 @@
 /api:
   get:
-    summary: Fetches the detwils of a person in the database
+    summary: Fetches the details of a user in the database
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          oneOf:
+            type: number
+            tyoe: string
+    description: Reads the attribute of a user  either with a name or an id parameter
+    tags:
+      - Person
+    schema:
+      $ref: '#/components/schemas/Person'
     responses:
       404:
         description: User Not Found 
