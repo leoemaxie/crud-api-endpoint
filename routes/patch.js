@@ -11,10 +11,12 @@ router.patch('/api/:user_id', async (req, res) => {
     return res.status(400).json({ error: "Bad Request" });
 
   try {
-    const user = await Person.findOneAndUpdate(query, { name }, { new: false });
+    const user = await Person.findOneAndUpdate(query, req.body, { new: true });
     if (!user)
       return res.status(404).json({ error: 'User Not Found' });
-    res.status(200).json(user.lean());
+
+    const { id, name } = user;
+    res.status(200).json({ id, name });
   } catch (error) {
     console.error('Error updating user:', error);
     res.status(500).json({ error: 'Internal Server Error' });

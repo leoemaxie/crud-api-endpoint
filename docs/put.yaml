@@ -1,28 +1,37 @@
-/api:
-  put:
-    summary: Updates the details of a user in the database
-    tags:                                                   
-        - Persons
-    requestBody:
-      content:
-        application/json:
+paths:
+  /api/{userId}:
+    put:
+      summary: Updates the details of a user in the database
+      description: Updates the attribute of a user  either with a name or an id parameter.
+      parameters:
+        - in: path
+          name: userId
           schema:
-            type: object
-        properties:
-          id:
-            type: number
-          name:
-            type: string
-            unique: true
-            minLengrh: 2
-          required:
-            - name
-    schema:
-      $ref: '#/components/schemas/Person'
-    responses:
-      200:
-        description: OK
-      404:
-        description: User Not Found
-      500:
-        description: Internal Server Error
+            type: integer | string
+          description: Numeric ID or name of the user to get.
+      tags:
+        - Person
+      schema:
+        $ref: '#/components/schemas/Person'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+                unique: true
+                minLengrh: 2
+            required:
+              - name
+      responses:
+        200:
+          description: OK
+        404:
+          description: User Not Found 
+        500:
+          description: Internal Server Error
+

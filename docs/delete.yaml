@@ -1,8 +1,19 @@
-/api:
-  delete:
-    summary: Deletes a user in the database
-    responses:
-      404:
-        description: User Not Found 
-      500:
-        description: Internal Server Error
+paths:
+  /api/{userId}:
+    delete:
+      summary: Deletes a user in the database
+      description: Deletes a user specified by the name or id parameter
+      parameters:
+        - in: path
+          name: userId
+          schema:
+            type: integer | string
+          description: Numeric ID or name of the user to get.
+      tags:
+        - Person
+      schema:
+        $ref: '#/components/schemas/Person'
+      responses:
+        500:
+          description: Internal Server Error
+
