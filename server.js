@@ -4,6 +4,7 @@ const specs = require('./swaggerConfig');
 // Routes handlers
 const deleteHandler = require('./routes/delete');
 const getHandler = require('./routes/get');
+const getAllUsersHandler = require('./routes/getAllUsers');
 const patchHandler = require('./routes/patch');
 const postHandler = require('./routes/post');
 const putHandler = require('./routes/put');
@@ -18,6 +19,7 @@ function createServer() {
   // API endpoints
   app.use('/', deleteHandler);
   app.use('/', getHandler);
+  app.use('/', getAllUsersHandler);
   app.use('/', patchHandler);
   app.use('/', postHandler);
   app.use('/', putHandler);
